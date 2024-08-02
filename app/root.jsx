@@ -162,6 +162,7 @@ export function ErrorBoundary() {
           <p className="text-3xl font-semibold">{error.status} {error.statusText}</p>
           <h1 className="uppercase text-red-500 text-center mt-4">Oh snap! Something went wrong</h1>
           <img src="/broken-pencil.png" alt="An image of a yellow pencil broken in half" className="w-80" />
+          <p>{error.data}</p>
           {/* TODO: Spin the retry icon on hover */}
           <Link to="/" className="bg-slate-700 hover:bg-slate-500 transition ease-in-out duration-300 text-white px-4 py-2 rounded-md flex gap-1 mt-4">
             <RetryIcon /> Try again
@@ -175,6 +176,7 @@ export function ErrorBoundary() {
       <div className="w-full h-screen flex flex-col items-center">
         <h1 className="uppercase mt-36 md:mt-44 text-red-500">Oh snap! Something went wrong</h1>
         <img src="/broken-pencil.png" alt="An image of a yellow pencil broken in half" className="w-80" />
+        <p>{error.message}</p>
         <Link to="/" className="bg-slate-700 hover:bg-slate-500 transition ease-in-out duration-300 text-white px-4 py-2 rounded-md flex gap-1 mt-4">
           <RetryIcon /> Try again
         </Link>
