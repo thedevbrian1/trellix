@@ -1,5 +1,5 @@
 import { useFetcher } from "@remix-run/react";
-import { forwardRef, useRef } from "react";
+import { forwardRef, useRef, useState } from "react";
 
 export let SaveButton = forwardRef((props, ref) => {
     return (
@@ -62,6 +62,7 @@ export function EditableText({ children, fieldName, value, inputClassName, input
                 type="button"
                 ref={buttonRef}
                 className={buttonClassName}
+                onClick={() => setEdit(true)}
             >
                 {value || <span className="text-slate-400 italic">Edit</span>}
             </button>

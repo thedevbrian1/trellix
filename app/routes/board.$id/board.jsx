@@ -1,10 +1,14 @@
 import { useLoaderData } from "@remix-run/react"
 import { useRef } from "react";
 import { EditableText } from "./components";
+import { Column } from "./column";
 
 export function Board() {
     let { board } = useLoaderData();
     let scrollContainerRef = useRef();
+
+    let columns = new Map();
+
     return (
         <div
             className="h-full min-h-0 flex flex-col overflow-x-scroll"
@@ -24,7 +28,27 @@ export function Board() {
                     <input type="hidden" name="id" value={board.id} />
                 </EditableText>
             </h1>
-
+            <div className="flex flex-grow min-h-0 h-full items-start gap-4 px-8 pb-4">
+            {/* {[...columns.values()].map((col) => {
+                return (
+                    <Column 
+                    key={col.id}
+                    name={col.name}
+                    columnId={col.id}
+                    items={col.items}
+                    />
+                    
+                )
+            })} */}
+            {columns.map(col => (
+                <Column 
+                key={col.id}
+                    name={col.name}
+                    columnId={col.id}
+                    items={items}
+                />
+            ))}
+            </div>
         </div>
     )
 }
